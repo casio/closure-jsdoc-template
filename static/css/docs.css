@@ -11,11 +11,11 @@
 body{
     padding: 10px;
 }
-h1, h2, h3, h4, h5, h6, ul, ol,dl, p,blockquote {padding:10px;}
-h1, h2, h3, h4, h5, h6,img{padding-bottom:0px;}
+h1,h2,h3,h4,h5,h6,ul,ol,dl,dt,p,blockquote {padding:10px;}
+h1,h2,h3,h4,h5,h6,img,dt,{padding-bottom:0px;}
 pre{margin: 10px;}
-table h1,table h2,table h3, table h4, table h5, table h6, table p, table ul, table ol, table dl{padding:0;}
-ul, ol { margin: 0; }
+table h1,table h2,table h3,table h4,table h5,table h6,table p,table ul,table ol,table dl{padding:0;}
+ul,ol { margin: 0; }
 
 h1{ font-size: 35px; }
 a, a:hover, a:visited {
@@ -45,11 +45,29 @@ article{
 }
 .content > nav{
     width: 25%;
-    padding: 14px 0 0 10px;
+    padding: 14px 0 0 15px;
     display: table-cell;
 }
 section{
     margin-top: 10px;
+}
+section h1{
+    font-size: 17px;
+}
+section h2{
+    font-size: 19px;
+    font-weight: normal;
+}
+section h3{
+}
+
+dt{
+    border-top:1px solid #E9E9E9;
+    font-weight: bold;
+    padding-left: 20px;
+}
+dd{
+    padding-left: 30px;
 }
 
 /* CLASSES */
