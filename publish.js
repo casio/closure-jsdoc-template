@@ -9,8 +9,8 @@ function publish(symbolSet) {
 		srcDir:      "symbols/src/"
 	};
 
-
-        IO.copyFile(JSDOC.opt.t+"static/html5-boilerplate/css/style.css", JSDOC.opt.d+'static/html5-boilerplate/css/');
+        // Copy static resources & media to out
+        copyResources();
 
 	// is source output is suppressed, just display the links to the source file
 	if (JSDOC.opt.s && defined(Link) && Link.prototype._makeSrcLink) {
@@ -201,4 +201,32 @@ function resolveLinks(str, from) {
 	);
 	
 	return str;
+}
+
+/** 
+ * Copies static resources to the ouput folder 
+ */
+function copyResources(){
+    IO.makeDir(publish.conf.outDir + 'static');
+    copyRecursive(
+        publish.conf.templatesDir + '/static',
+        publish.conf.outDir + 'static'
+    );
+}
+
+/**
+ * @param inFile
+ * @param outDir
+ */
+function copyRecursive(inPath, outPath) {
+    inPath = new File(inPath);
+    var inPathLength = inPath.toString().length();
+    var files = IO.ls(inPath, 10);
+    for (var n = 0, len = files.length; n < len; n++) {
+        var outFile = new File(outPath + files[n].substring(inPathLength));
+        var outPathParts = outFile.toString().replace('\\','/').split('/');
+        outPathParts = outPathParts.splice(0,outPathParts.length-1);
+        IO.mkPath(outPathParts);
+        IO.copyFile(files[n], outPathParts.join('/'));
+    }
 }
