@@ -46,6 +46,7 @@ article{
 .content > nav{
     width: 25%;
     padding: 14px 0 0 15px;
+    
     display: table-cell;
 }
 section{
