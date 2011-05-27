@@ -39,6 +39,9 @@ header{
     display: block;
     width: 100%;
 }
+.content>article>header{
+    padding-bottom: 0;
+}
 article{
     display: table-cell;
     vertical-align: top;
@@ -46,6 +49,8 @@ article{
 .content > nav{
     width: 25%;
     padding: 14px 0 0 15px;
+
+
     
     display: table-cell;
 }
